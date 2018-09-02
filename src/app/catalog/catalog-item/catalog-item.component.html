@@ -1,0 +1,17 @@
+<li>
+  <div class="header">
+    <div *ngIf="isSeveralSizes; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>{{product.sizes.length}}</ng-template>
+    <ng-template #elseBlock>{{product.price}}</ng-template>
+    <div class="colors">
+      <div *ngFor="let item of product.colors" [ngStyle]="{'background-color': item}"></div>
+    </div>
+  </div>
+  <div class="image-wrapper">
+    <img src={{product.imgPath}} alt="Product">
+  </div>
+  <div class="footer">
+    <span class="name">{{product.name}}</span>
+    <span class="price">{{product.price | currencyFormat}}</span>
+  </div>
+</li>
