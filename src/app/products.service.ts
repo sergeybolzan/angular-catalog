@@ -16,7 +16,7 @@ export class ProductsService {
         imgPath: 'assets/images/0.png',
         category: 'men',
         price: 5,
-        sizes: ['s', 'm', 'l'],
+        sizes: ['xl', 'l'],
         colors: ['#165eb9', '#ffe637', '#535253']
       },
       {

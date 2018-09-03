@@ -1,8 +1,17 @@
 <li>
   <div class="header">
-    <div *ngIf="isSeveralSizes; then thenBlock else elseBlock"></div>
-    <ng-template #thenBlock>{{product.sizes.length}}</ng-template>
-    <ng-template #elseBlock>{{product.price}}</ng-template>
+    <div class="sizes">
+      <div *ngIf="product.sizes.length > 1; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <select>
+          <option>Size</option>
+          <option *ngFor="let item of product.sizes">{{item}}</option>
+        </select>
+      </ng-template>
+      <ng-template #elseBlock>
+        <span>{{product.sizes[0]}}</span>
+      </ng-template>
+    </div>
     <div class="colors">
       <div *ngFor="let item of product.colors" [ngStyle]="{'background-color': item}"></div>
     </div>

@@ -7,14 +7,13 @@ import { Product } from '../../product.model';
   styleUrls: ['./catalog-item.component.css']
 })
 export class CatalogItemComponent implements OnInit {
-
-  @Input() public product: Product;
-
-  isSeveralSizes = true;
+  @Input()
+  public product: Product;
 
   constructor() {}
 
   ngOnInit() {
   }
+
 
 }
