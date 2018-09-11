@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="flex-wrapper">
+    <span>Sort by</span>
+    <select [(ngModel)]="currentSortingOption" (ngModelChange)="onOptionChange($event)">
+      <option *ngFor="let item of sortingOptions" [value]="item">{{item}}</option>
+    </select>
+  </div>
+</div>

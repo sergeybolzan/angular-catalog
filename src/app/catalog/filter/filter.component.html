@@ -1,0 +1,10 @@
+<div class="top">
+  <div class="container">
+    <div class="flex-wrapper">
+      <div class="items">
+        <app-filter-item *ngFor="let category of categories" [category]="category"></app-filter-item>
+      </div>
+      <button (click)="showAllCategories()">See all products</button>
+    </div>
+  </div>
+</div>

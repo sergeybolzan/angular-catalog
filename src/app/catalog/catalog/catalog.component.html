@@ -1,3 +1,11 @@
-<ul>
-  <app-catalog-item *ngFor="let item of products" [product]="item"></app-catalog-item>
-</ul>
+<app-filter [categories]="categories"></app-filter>
+<app-sort [sortingOptions]="sortingOptions" [(currentSortingOption)]="currentSortingOption"></app-sort>
+<ng-container *ngFor="let category of categories; let odd = odd">
+  <app-carousel 
+    *ngIf="category.isShow" 
+    [slidesInRow]=3 
+    [products]="filterProducts(category.name)" 
+    [category]="category.name"
+    [isOdd]="odd">
+  </app-carousel>
+</ng-container>

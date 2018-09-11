@@ -5,5 +5,5 @@ export interface Product {
   category: string;
   price: number;
   sizes: string[];
-  colors: string[]
+  colors: string[];
 }

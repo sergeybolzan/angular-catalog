@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'currencyFormat'
 })
-export class CurrencyFormat implements PipeTransform {
+export class CurrencyFormatPipe implements PipeTransform {
   transform(
     value: number,
     currencySign: string = '€',
@@ -12,9 +12,8 @@ export class CurrencyFormat implements PipeTransform {
     decimalDelimiter: string = ',',
     chunkLength: number = 3
   ): string {
-    
-    let result = '\\d(?=(\\d{' + chunkLength + '})+' + (decimalLength > 0 ? '\\D' : '$') + ')';
-    let num = value.toFixed(Math.max(0, ~~decimalLength));
+    const result = '\\d(?=(\\d{' + chunkLength + '})+' + (decimalLength > 0 ? '\\D' : '$') + ')';
+    const num = value.toFixed(Math.max(0, Math.floor(decimalLength)));
 
     return (
       (decimalDelimiter ? num.replace('.', decimalDelimiter) : num).replace(

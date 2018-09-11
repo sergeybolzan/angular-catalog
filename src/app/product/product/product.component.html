@@ -1,0 +1,39 @@
+<div class="top">
+  <div class="container">
+    <div class="back" (click)="goBack()">
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+      <span>Back to catalog</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="name">
+    <span>{{product.name}}</span>
+    <hr>
+  </div>
+  <div class="product">
+    <div class="image">
+      <img src="{{product.imgPath}}" alt="Product">
+    </div>
+    <div class="info">
+      <table>
+        <tr>
+          <td>{{product.price | currencyFormat}}</td>
+          <td>Price</td>
+        </tr>
+        <tr *ngIf="product.colors.length">
+          <td>
+            <div class="colors">
+              <div *ngFor="let item of product.colors" [ngStyle]="{'background-color': item}"></div>
+            </div>
+          </td>
+          <td>Colors</td>
+        </tr>
+        <tr *ngIf="product.sizes.length">
+          <td>{{product.sizes.join()}}</td>
+          <td>Sizes</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

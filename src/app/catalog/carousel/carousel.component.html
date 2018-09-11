@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="description" [ngClass]="{isOdd: isOdd}">
+    <span>{{category}}</span>
+    <hr>
+  </div>
+
+  <div class="navigation" [ngClass]="{isOdd: isOdd}">
+    <div class="pages">{{currentPage}} / {{numberOfSlides}}</div>
+    <div class="nav">
+      <span (click)="owlElement.previous()"><fa-icon [icon]="faChevronLeft"></fa-icon></span>
+      <span (click)="owlElement.next()"><fa-icon [icon]="faChevronRight"></fa-icon></span>
+    </div>
+  </div>
+
+  <owl-carousel #owlElement [options]="{items: slidesInRow, slideBy: slidesInRow, dots: false, onChanged: changePage.bind(this), margin: 64}" [items]="products">
+    <div class="item" *ngFor="let item of products">
+      <app-carousel-item [product]="item"></app-carousel-item>
+    </div>
+    <div *ngFor="let item of lodash.range(calculateEmptyBlocks())"></div>
+  </owl-carousel>
+</div>

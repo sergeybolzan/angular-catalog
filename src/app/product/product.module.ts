@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { ProductComponent } from './product/product.component';
+import { PipeModule } from '../pipe.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule,
+    PipeModule.forRoot()
   ],
-  declarations: []
+  declarations: [ProductComponent],
+  exports: [ProductComponent]
 })
 export class ProductModule { }
